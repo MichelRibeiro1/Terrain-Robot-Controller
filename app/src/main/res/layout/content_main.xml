@@ -8,12 +8,37 @@
     tools:context="com.clubederobotica.cdr_bt.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <ImageButton
+        android:id="@+id/garraUP"
+        android:layout_width="75dp"
+        android:layout_height="69dp"
+        android:layout_gravity="bottom|left"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="top|center_horizontal"
+        android:background="@drawable/ic_garra"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:id="@+id/garraDown"
+        android:layout_width="75dp"
+        android:layout_height="73dp"
+        android:layout_gravity="bottom|right"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="top|center_horizontal"
+        android:background="@drawable/ic_garradown"
+        android:layout_below="@+id/garraUP"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp" />
+
 
     <ImageButton
         android:id="@+id/btnUp"
         android:layout_width="89dp"
         android:layout_height="88dp"
-        app:srcCompat="@drawable/ic_up"
+        android:background="@drawable/ic_up"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="99dp"
         android:layout_above="@+id/btnRight"
@@ -24,7 +49,7 @@
         android:id="@+id/btnDown"
         android:layout_width="89dp"
         android:layout_height="88dp"
-        app:srcCompat="@drawable/ic_down"
+        android:background="@drawable/ic_down"
         tools:layout_editor_absoluteY="275dp"
         tools:layout_editor_absoluteX="148dp"
         android:layout_below="@+id/btnstop"
@@ -35,7 +60,7 @@
         android:id="@+id/btnLeft"
         android:layout_width="89dp"
         android:layout_height="88dp"
-        app:srcCompat="@drawable/ic_left"
+        android:background="@drawable/ic_left"
         tools:layout_editor_absoluteX="59dp"
         tools:layout_editor_absoluteY="187dp"
         android:layout_above="@+id/btnDown"
@@ -46,7 +71,7 @@
         android:id="@+id/btnRight"
         android:layout_width="89dp"
         android:layout_height="88dp"
-        app:srcCompat="@drawable/ic_right"
+        android:background="@drawable/ic_right"
         tools:layout_editor_absoluteX="237dp"
         tools:layout_editor_absoluteY="187dp"
         android:layout_alignBottom="@+id/btnstop"
@@ -57,7 +82,7 @@
         android:id="@+id/btnstop"
         android:layout_width="88dp"
         android:layout_height="89dp"
-        app:srcCompat="@drawable/ic_center"
+        android:background="@drawable/button_stop"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="187dp"
         android:layout_centerVertical="true"

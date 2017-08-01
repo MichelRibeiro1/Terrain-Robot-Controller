@@ -6,10 +6,13 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -63,77 +66,137 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent_enableBT, SOLICITA_BT);
         }
 
-        btnUP.setOnClickListener(new View.OnClickListener() {
+        //config dos butões - informações enviadas ao botão ser pressionado - INICIO
+        btnUP.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                if(conexaoBT){
-                    connectedThread.write("forward");
-                }else{
-                    Toast.makeText(getApplicationContext(), "BT sem conexão", Toast.LENGTH_LONG).show();
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        connectedThread.write("forward");
+                        view.getBackground().setColorFilter(0xa9a9a985, PorterDuff.Mode.SRC_ATOP);
+                        view.invalidate();
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        connectedThread.write("stop");
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        return false;
                 }
-            }
-        });
-        btnGarraUP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(conexaoBT){
-                    connectedThread.write("GarraUP");
-                }
-            }
-        });
-
-        btnGarraDown.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(conexaoBT){
-                    connectedThread.write("garraDOWN");
-                }
+                return false;
             }
         });
 
-        btnDOWN.setOnClickListener(new View.OnClickListener() {
+        btnDOWN.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                if(conexaoBT){
-                    connectedThread.write("back");
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        connectedThread.write("back");
+                        view.getBackground().setColorFilter(0xa9a9a985, PorterDuff.Mode.SRC_ATOP);
+                        view.invalidate();
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        connectedThread.write("stop");
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        return false;
                 }
+                return false;
             }
         });
 
-        btnRIGHT.setOnClickListener(new View.OnClickListener() {
+        btnLEFT.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                if(conexaoBT){
-                    connectedThread.write("right");
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        connectedThread.write("left");
+                        view.getBackground().setColorFilter(0xa9a9a985, PorterDuff.Mode.SRC_ATOP);
+                        view.invalidate();
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        connectedThread.write("stop");
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        return false;
                 }
+                return false;
             }
         });
 
-        btnLEFT.setOnClickListener(new View.OnClickListener() {
+        btnRIGHT.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                if(conexaoBT){
-                    connectedThread.write("left");
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        connectedThread.write("right");
+                        view.getBackground().setColorFilter(0xa9a9a985, PorterDuff.Mode.SRC_ATOP);
+                        view.invalidate();
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        connectedThread.write("stop");
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        return false;
                 }
+                return false;
+            }
+        });
+
+        btnGarraUP.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        connectedThread.write("garraUP");
+                        view.getBackground().setColorFilter(0xa9a9a985, PorterDuff.Mode.SRC_ATOP);
+                        view.invalidate();
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        connectedThread.write("stop");
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        return false;
+                }
+                return false;
+            }
+        });
+
+        btnGarraDown.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        connectedThread.write("garraDOWN");
+                        view.getBackground().setColorFilter(0xa9a9a985, PorterDuff.Mode.SRC_ATOP);
+                        view.invalidate();
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        connectedThread.write("stop");
+                        view.getBackground().clearColorFilter();
+                        view.invalidate();
+                        return false;
+                }
+                return false;
             }
         });
 
         btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(conexaoBT){
-                    connectedThread.write("stop");
-                }
+                connectedThread.write("stop");
             }
         });
-        //fim config BT
+
+
+        //config dos butões - informações enviadas ao botão ser pressionado - FIM
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(conexaoBT){
-                    //desconectar
+                    //desconectar BT
                     try {
                         myBTSocket.close();
                         conexaoBT = false;
@@ -145,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }else{
-                    //conectar
+                    //conectar BT
                     Intent openDevicesList = new Intent(MainActivity.this, DevicesList.class);
                     startActivityForResult(openDevicesList, SOLICITA_CONEXAO);
                 }
@@ -242,25 +305,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

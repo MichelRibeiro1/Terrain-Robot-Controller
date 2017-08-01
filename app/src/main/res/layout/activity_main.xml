@@ -31,22 +31,5 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
 
-    <ImageButton
-        android:id="@+id/garraUP"
-        android:layout_width="75dp"
-        android:layout_height="69dp"
-        android:layout_gravity="bottom|left"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="top|center_horizontal"
-        app:srcCompat="@drawable/ic_garra" />
-
-    <ImageButton
-        android:id="@+id/garraDown"
-        android:layout_width="75dp"
-        android:layout_height="73dp"
-        android:layout_gravity="bottom|right"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="top|center_horizontal"
-        app:srcCompat="@drawable/ic_garradown" />
 
 </android.support.design.widget.CoordinatorLayout>
