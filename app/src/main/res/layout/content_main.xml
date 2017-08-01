@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.clubederobotica.cdr_bt.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+
+    <ImageButton
+        android:id="@+id/btnUp"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        app:srcCompat="@drawable/ic_up"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="99dp"
+        android:layout_above="@+id/btnRight"
+        android:layout_alignLeft="@+id/btnstop"
+        android:layout_alignStart="@+id/btnstop" />
+
+    <ImageButton
+        android:id="@+id/btnDown"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        app:srcCompat="@drawable/ic_down"
+        tools:layout_editor_absoluteY="275dp"
+        tools:layout_editor_absoluteX="148dp"
+        android:layout_below="@+id/btnstop"
+        android:layout_alignRight="@+id/btnstop"
+        android:layout_alignEnd="@+id/btnstop" />
+
+    <ImageButton
+        android:id="@+id/btnLeft"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        app:srcCompat="@drawable/ic_left"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="187dp"
+        android:layout_above="@+id/btnDown"
+        android:layout_toLeftOf="@+id/btnDown"
+        android:layout_toStartOf="@+id/btnDown" />
+
+    <ImageButton
+        android:id="@+id/btnRight"
+        android:layout_width="89dp"
+        android:layout_height="88dp"
+        app:srcCompat="@drawable/ic_right"
+        tools:layout_editor_absoluteX="237dp"
+        tools:layout_editor_absoluteY="187dp"
+        android:layout_alignBottom="@+id/btnstop"
+        android:layout_toRightOf="@+id/btnstop"
+        android:layout_toEndOf="@+id/btnstop" />
+
+    <ImageButton
+        android:id="@+id/btnstop"
+        android:layout_width="88dp"
+        android:layout_height="89dp"
+        app:srcCompat="@drawable/ic_center"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="187dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
